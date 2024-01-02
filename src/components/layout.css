@@ -41,16 +41,93 @@ html {
   width: 100%; /* Full width */
 }
 
-.header nav {
-  margin: 0 auto;
-  max-width: var(--size-content); /* Maximum width of the navigation content */
-  width: 100%; /* Full width */
-  padding: 0 var(--size-gutter); /* Horizontal padding */
+.header-nav {
   display: flex;
-  justify-content: space-between; /* Space out nav items */
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 var(--size-gutter);
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.site-title {
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+.nav-links {
+  display: flex;
   align-items: center;
 }
 
+.nav-link {
+  color: var(--color-text);
+  text-decoration: none;
+  margin-right: var(--space-3);
+}
+.site-title:hover,
+.nav-link:hover {
+  transform: scale(1.1); /* Slightly enlarges the link */
+  transition: transform 0.3s ease; /* Smooth transition */
+}
+
+/* Ensures the transition is smooth when not hovering */
+.site-title,
+.nav-link {
+  transition: transform 0.3s ease;
+}
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .nav-links {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nav-link {
+    margin-bottom: var(--space-2);
+  }
+}
+@keyframes slideInFromLeft {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.header-slide-in {
+  animation: slideInFromLeft 1s ease-out forwards;
+}
+/* Hover effect for SVG icons */
+a.icon-hover:hover svg,
+a.icon-hover:focus svg {
+  transform: scale(1.1); /* Enlarges the icon to 110% of its size */
+  transition: transform 0.3s ease; /* Animation effect for the transformation */
+}
+
+/* Ensures the icon returns to normal size smoothly */
+a.icon-hover svg {
+  transition: transform 0.3s ease;
+}
+@keyframes slideDownFromHeader {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.content-slide-in {
+  opacity: 0; /* Initially hide the content */
+  animation: slideDownFromHeader 1s ease-out forwards;
+  animation-delay: 1s; /* Start after the header animation finishes */
+}
 body {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;

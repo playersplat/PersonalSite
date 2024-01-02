@@ -1,19 +1,34 @@
-import * as React from "react"
-import { Link } from "gatsby"
-import { StaticImage } from "gatsby-plugin-image"
-
+import React, { useState, useEffect } from "react"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 import * as styles from "../components/index.module.css"
+import ContentBox from "../components/ContentBox"; // Import the new component
 
-const IndexPage = () => (
-  <Layout>
-    <div className={styles.textCenter}>
-      <h1>Brian Bui</h1>
-    </div>
-  </Layout>
-)
+const IndexPage = () => {
+  // State to control the animation
+  const [shouldAnimate, setShouldAnimate] = useState(false);
 
-export const Head = () => <Seo title="B" defaultTitle={false}/>
+  useEffect(() => {
+    // Check if the animation has already been played
+    const hasAnimatedIndex = window.localStorage.getItem('hasAnimatedIndex');
+    
+    if (!hasAnimatedIndex) {
+      // If not, animate the index content and set the flag in local storage
+      setShouldAnimate(true);
+      window.localStorage.setItem('hasAnimatedIndex', 'true');
+    }
+  }, []);
+
+  return (
+    <Layout>
+      <Seo title="B" defaultTitle={false}/>
+      <div className={`${styles.textCenter} ${shouldAnimate ? "content-slide-in" : ""}`}>
+        <h1>Brian Bui</h1>
+        <ContentBox /> {/* Use the ContentBox component here */}
+        {/* Your other content */}
+      </div>
+    </Layout>
+  )
+}
 
 export default IndexPage
