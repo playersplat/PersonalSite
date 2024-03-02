@@ -30,7 +30,7 @@ const Portfolio = () => {
           <div key={project.id} className="projectCard">
             <h3>{project.title}</h3>
             <p>{project.description}</p>
-            <a href={project.path} rel="noopener noreferrer">View Project</a>
+            <a href={`/PersonalSite${project.path}`} rel="noopener noreferrer">View Project</a>
           </div>
         ))}
       </div>
