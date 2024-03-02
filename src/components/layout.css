@@ -27,6 +27,46 @@
   --background-color: #121212; /* Dark background color */
 }
 
+.contentBox {
+  padding: 20px;
+  margin: 20px 0;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background-color: #030101;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.portfolio {
+  text-align: left;
+}
+
+.projectsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+.projectCard {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 16px;
+  transition: box-shadow 0.3s ease, transform 0.3s ease; /* Add transform to the transition */
+  will-change: transform; /* Optimizes for animations */
+}
+
+.projectCard:hover {
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  transform: scale(1.05); /* Slightly increase size on hover */
+}
+
+
+.projectImage {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+
 html {
   -webkit-text-size-adjust: 100%;
   box-sizing: border-box;
@@ -34,6 +74,7 @@ html {
   font-size: var(--font-md);
   line-height: var(--line-height-normal);
   overflow-y: scroll;
+  overflow-x: hidden;
 }
 .header {
   background-color: var(--color-code-bg); /* Use your variable for background */
