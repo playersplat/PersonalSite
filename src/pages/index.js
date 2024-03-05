@@ -4,7 +4,6 @@ import Seo from "../components/seo"
 import * as styles from "../components/index.module.css"
 import ContentBox from "../components/ContentBox"; // Import the new component
 import Portfolio from '../components/Portfolio'; 
-
 const IndexPage = () => {
   // State to control the animation
   const [shouldAnimate, setShouldAnimate] = useState(false);
@@ -25,9 +24,9 @@ const IndexPage = () => {
       <Seo title="B" defaultTitle={false}/>
       <div className={`${styles.textCenter} ${shouldAnimate ? "content-slide-in" : ""}`}>
         <h1>Brian Bui</h1>
-        <ContentBox /> {/* Use the ContentBox component here */}
+        <ContentBox /> 
         <Portfolio />
-        {/* Your other content */}
+
       </div>
     </Layout>
   )

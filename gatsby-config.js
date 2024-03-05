@@ -30,6 +30,7 @@ module.exports = {
         path: `${__dirname}/src/projects`, // Adjust this path to where your markdown files are located
       },
     },
+    
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {

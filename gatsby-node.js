@@ -28,7 +28,7 @@ exports.createPages = async ({ graphql, actions }) => {
       component: portTemplate,
       context: {
         // Passing path as context to be used in portTemplate's GraphQL query
-        path: node.frontmatter.path,
+        slug: node.frontmatter.path,
       },
     });
   });

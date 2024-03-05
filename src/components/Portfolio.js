@@ -1,6 +1,6 @@
 import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
-
+import { Link } from 'gatsby';
 const Portfolio = () => {
   const data = useStaticQuery(graphql`
     query PortfolioQuery {
@@ -30,7 +30,7 @@ const Portfolio = () => {
           <div key={project.id} className="projectCard">
             <h3>{project.title}</h3>
             <p>{project.description}</p>
-            <a href={`/PersonalSite${project.path}`} rel="noopener noreferrer">View Project</a>
+            <Link to={project.path} rel="noopener noreferrer">View Project</Link>
           </div>
         ))}
       </div>

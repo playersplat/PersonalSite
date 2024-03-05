@@ -19,8 +19,8 @@ export default function Template({ data }) {
   );
 }
 export const pageQuery = graphql`
-  query PortfolioByPath($path: String!) {
-    markdownRemark(frontmatter: { path: { eq: $path } }) {
+  query PortfolioByPath($slug: String!) {
+    markdownRemark(frontmatter: { path: { eq: $slug } }) {
       html
       frontmatter {
         path

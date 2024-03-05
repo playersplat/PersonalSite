@@ -5,8 +5,10 @@
   "version": "0.1.0",
   "author": "Kyle Mathews <mathews.kyle@gmail.com>, Brian Bui <bbui3@ucsc.edu>",
   "dependencies": {
+    "framer-motion": "^11.0.8",
     "gatsby": "^5.13.0",
     "gatsby-plugin-image": "^3.13.1",
+    "gatsby-plugin-layout": "^4.13.1",
     "gatsby-plugin-manifest": "^5.13.0",
     "gatsby-plugin-sharp": "^5.13.1",
     "gatsby-remark-images": "^7.13.1",
