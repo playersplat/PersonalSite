@@ -15,4 +15,3 @@ A type of image processing approach to detect motion within different adjacent v
 ## Method 2: Cascade Classifier
 A pipeline method using multiple positive images and an arbitrary negative concerted together. Detection algorithm is based on the Viola-Jones object detection framework to deal with moving objects.
 
-### Features
