@@ -1,6 +1,8 @@
 import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import { Link } from 'gatsby';
+import { motion } from 'framer-motion';
+
 const Portfolio = () => {
   const data = useStaticQuery(graphql`
     query PortfolioQuery {
@@ -18,12 +20,25 @@ const Portfolio = () => {
       }
     }
   `);
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: { 
+      opacity: 1,
+      transition: { duration: 1 }
+    }
+  };
   const projects = data.allMarkdownRemark.edges.map(edge => ({
     ...edge.node.frontmatter,
     id: edge.node.id
   }));
   return (
-    <div className="portfolio">
+    <motion.div
+      initial="hidden"
+      animate="visible"
+      variants={containerVariants}
+      className="portfolio"
+    >
       <h2>My Portfolio</h2>
       <div className="projectsGrid">
         {projects.map((project) => (
@@ -34,7 +49,7 @@ const Portfolio = () => {
           </div>
         ))}
       </div>
-    </div>
+    </motion.div>
   );
 };
 
